@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const imageRoutes = require("./routes/imageRoutes");
 
 const app = express();
+const port = process.env.PORT || 8000;
 
 app.use(express.static(path.join(__dirname, "/uploads")));
 app.use(express.json());
@@ -26,6 +27,6 @@ mongoose.connect(
 
 app.get("/", (req, res) => res.send("Home Page!"));
 app.use("/upload", imageRoutes);
-app.use((req, res) => res.send("Page not found!"));
+app.use((req, res) => res.status(404).send("Page not found!"));
 
-app.listen(8000);
+app.listen(port);
