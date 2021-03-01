@@ -4,7 +4,7 @@ const fs = require("fs");
 const postImage = (req, res) => {
   const newImage = new Image({
     name: req.body.name,
-    image: `${req.protocol}://${req.headers.host}/${req.file.filename}`,
+    image: `${req.protocol}s://${req.headers.host}/${req.file.filename}`,
   });
   newImage
     .save()
