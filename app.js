@@ -26,6 +26,7 @@ mongoose.connect(
 );
 
 app.get("/", (req, res) => res.send("Home Page!"));
+app.get("/hello", (req, res) => res.send("hello user!"));
 app.use("/upload", imageRoutes);
 app.use((req, res) => res.status(404).send("Page not found!"));
 
